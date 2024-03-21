@@ -28,6 +28,9 @@
             <a href="{{ route('export-karyawan') }}" class="btn btn-success">
             <i class="fa fa-file-excel"></i> Export
             </a>
+            <a href="{{ route('aku') }}" class="btn btn-danger">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </a>
             @include('karyawan.data')
         </div>
     </div>

@@ -28,12 +28,42 @@
             <a href="{{ route('export-menu') }}" class="btn btn-success">
             <i class="fa fa-file-excel"></i> Export
             </a>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#formImportMenu">
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#formImport">
             <i class="fa fa-file-excel"></i> Import
             </button>
+            <a href="{{ route('aku') }}" class="btn btn-danger">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </a>
             @include('menu.data')
         </div>
     </div>
+    <div class="modal fade" id="formImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Data Menu</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{ url(request()->segment(1).'/menu/import') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">
+                        <div class="form-group">
+                             <label for="menu" class="form-label">File Excel</label>
+                             <input type="file" class="form-control" id="import" name="import">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Upload</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 </section>
 @endsection
 

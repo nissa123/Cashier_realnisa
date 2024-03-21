@@ -29,6 +29,9 @@
             <a href="{{ route('export-kategori') }}" class="btn btn-success">
             <i class="fa fa-file-excel"></i> Export
             </a>
+            <a href="{{ route('aku') }}" class="btn btn-danger">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </a>
             @include('kategori.data')
         </div>
     </div>

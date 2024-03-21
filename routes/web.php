@@ -47,4 +47,13 @@ Route::get('export/kategori', [KategoriController::class,'exportData'])->name('e
 Route::get('export/karyawan', [KaryawanController::class,'exportData'])->name('export-karyawan');
 Route::get('export/produktitipan', [ProdukTitipanController::class,'exportData'])->name('export-produktitipan');
 
+Route::get('generate/menu', [MenuController::class, 'generatepdf'])->name('aku');
+Route::get('generate/stok', [StokController::class, 'generatepdf'])->name('aku');
+Route::get('generate/kategori', [KategoriController::class, 'generatepdf'])->name('aku');
+Route::get('generate/meja', [MejaController::class, 'generatepdf'])->name('aku');
+Route::get('generate/jenis', [JenisController::class, 'generatepdf'])->name('aku');
+Route::get('generate/karyawan', [KaryawanController::class, 'generatepdf'])->name('aku');
+Route::get('generate/pelanggan', [KaryawanController::class, 'generatepdf'])->name('aku');
+Route::get('generate/karyawan', [KaryawanController::class, 'generatepdf'])->name('aku');
+
 Route::post('menu/import', [MenuController::class,'importData'])->name('import-menu');

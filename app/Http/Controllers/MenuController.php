@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
 use App\Imports\MenuImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MenuController extends Controller
 {
@@ -91,5 +92,12 @@ class MenuController extends Controller
     public function importData(){
         Excel::import(new MenuExport, request()->file('import'));
         return redirect(request()->segment(1).'/menu')->with('success','Import data menu berhasil');
+    }
+
+    public function generatepdf()
+    {
+        $menu = menu::all();
+        $pdf = Pdf::loadView('menu.data', compact('menu'));
+        return $pdf-> download('menu.pdf');
     }
 }
